@@ -8,8 +8,8 @@ for (let i = 0; i < totalSquares; i++) {
     container.appendChild(square);
 
      //  Add the trail effect
-     square.addEventListener('mouseenter', () => {
-        square.style.backgroundColor = 'violet'; // or random color
+     square.addEventListener('mouseenter', () => { // mouseenter only fire once per square compare to mousemove
+        square.style.backgroundColor = 'violet'; 
       });
     
       container.appendChild(square);
