@@ -8,7 +8,9 @@
     flex-wrap: wrap;
     width: 640px;
     height: 640px;
-    border: 1px solid #000000;
+    outline: 1px solid #000000;/*border was taking on the inner space */
+    margin-left: 400px;
+    margin-top: 50px;
   }
 
   .grid-square {
