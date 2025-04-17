@@ -13,10 +13,28 @@
             square.style.width = `${squareSize}px`;
             square.style.height = `${squareSize}px`;
     
-            // hover trail effect
-            square.addEventListener('mouseenter', () => { //mouseenter check only once per square vs mousemove
-                square.style.backgroundColor = 'violet';
-            });
+            square.addEventListener('mouseenter', () => {
+                // Check current opacity level (default is 0)
+                let opacity = parseFloat(square.getAttribute('data-opacity')) || 0;
+              
+                if (!square.style.backgroundColor) {
+                  // First time: assign a random background color
+                  const r = Math.floor(Math.random() * 256);
+                  const g = Math.floor(Math.random() * 256);
+                  const b = Math.floor(Math.random() * 256);
+                  square.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+                  square.style.position = 'relative';
+                  square.setAttribute('data-opacity', 0);
+                }
+              
+                if (opacity < 1) {
+                  opacity = Math.min(opacity + 0.1, 1); // max opacity = 1
+                  square.setAttribute('data-opacity', opacity);
+              
+                  // Apply black overlay using box-shadow (a neat trick for opacity layering)
+                  square.style.boxShadow = `inset 0 0 0 1000px rgba(0, 0, 0, ${opacity})`;
+                }
+              });
     
             container.appendChild(square);
         }
