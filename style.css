@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  .grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 640px;
+    height: 640px;
+    border: 1px solid #000000;
+  }
+
+  .grid-square {
+    display: flex;
+    width: 40px; /* grid-container width (640px)/16 number of column = 40px */
+    height: 40px;
+    box-sizing: border-box;
+    border: 1px dotted #0000ff;
+  }
